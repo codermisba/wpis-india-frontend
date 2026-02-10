@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background: #fff5f8;
+  color: #4a044e;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+  background: linear-gradient(135deg, #d81b60, #ad1457);
+  color: white;
+  padding: 18px 40px;
+}
+
+.header h1 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.menu {
+  margin-top: 10px;
+  display: flex;
+  gap: 25px;
+  font-size: 15px;
+}
+
+.menu span {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.menu span:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 50px 20px 30px;
+}
+
+.hero h2 {
+  font-size: 36px;
+  font-weight: 800;
+  color: #880e4f;
+}
+
+.hero p {
+  margin-top: 12px;
+  font-size: 17px;
+  color: #5f0f40;
+}
+
+/* MAIN GRID */
+.main-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 25px;
+  padding: 30px 50px;
+}
+
+/* STATS */
+.stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.card {
+  background: white;
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.card h4 {
+  font-size: 15px;
+  color: #880e4f;
+}
+
+.card p {
+  margin-top: 6px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ad1457;
+}
+
+/* MAP CONTAINER */
+.map-box {
+  background: white;
+  border-radius: 18px;
+  padding: 15px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* FOOTER (OPTIONAL) */
+.footer {
+  margin-top: 50px;
+  padding: 20px;
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+}
