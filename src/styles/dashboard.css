@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #fff0f6, #ffe4ec);
+  color: #4a044e;
+}
+
+.app {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* HEADER */
+.header {
+  padding: 32px 20px 20px;
+  text-align: center;
+  border-bottom: 1px solid #fbcfe8;
+}
+
+.header h1 {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #9d174d;
+}
+
+.header p {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #831843;
+}
+
+.menu {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  font-size: 14px;
+}
+
+.menu span {
+  cursor: pointer;
+  color: #831843;
+  font-weight: 500;
+}
+
+.menu span:hover {
+  color: #be185d;
+}
+
+/* HERO */
+.hero {
+  padding: 40px 20px 30px;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #9d174d;
+}
+
+.hero p {
+  margin-top: 10px;
+  max-width: 720px;
+  margin-inline: auto;
+  color: #831843;
+  font-size: 14px;
+}
+
+/* STATS */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(236,72,153,0.08);
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card h4 {
+  font-size: 13px;
+  color: #9d174d;
+}
+
+.card p {
+  margin-top: 8px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #be185d;
+}
+
+/* DASHBOARD */
+.dashboard {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 22px;
+  max-width: 1400px;
+  margin: auto;
+  padding: 30px 20px 60px;
+}
+
+.map-container {
+  background: white;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 10px 24px rgba(236,72,153,0.08);
+}
+
+/* RANKING */
+.ranking {
+  background: white;
+  border-radius: 18px;
+  padding: 12px;
+  max-height: 600px;
+  overflow-y: auto;
+  box-shadow: 0 10px 24px rgba(236,72,153,0.08);
+}
+
+.rank-row {
+  display: grid;
+  grid-template-columns: 40px 1fr 110px;
+  padding: 10px 6px;
+  border-bottom: 1px solid #fbcfe8;
+  font-size: 13px;
+}
+
+.rank {
+  color: #db2777;
+  font-weight: 700;
+}
+
+.state {
+  color: #701a75;
+}
+
+.value {
+  text-align: right;
+  color: #9d174d;
+}
+
+/* Hide scrollbar */
+.ranking::-webkit-scrollbar {
+  display: none;
+}
+
+.ranking {
+  scrollbar-width: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1000px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+}

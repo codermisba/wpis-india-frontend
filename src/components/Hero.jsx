@@ -1,16 +1,29 @@
-export default function Hero() {
-  return (
-    <section className="bg-[#fde7f0] py-16">
-      <div className="max-w-5xl mx-auto text-center px-6">
-        <h2 className="text-4xl font-bold text-[#880e4f] mb-4">
-          Measuring Safety & Justice for Women Across India
-        </h2>
+import { useNavigate } from "react-router-dom";
 
-        <p className="text-lg text-gray-700 leading-relaxed">
-          An interactive data platform visualizing crime trends against women
-          across Indian states from 2001 to 2021, enabling data-driven policy,
-          awareness, and reform.
-        </p>
+export default function Hero() {
+  const nav = useNavigate();
+
+  return (
+    <section className="hero-section">
+      <h1>
+        Empowering <span>Women Safety</span> in India using
+        <br /> Data, AI & Policy Intelligence
+      </h1>
+
+      <p>
+        NyayaSakhi is a national analytical platform that visualizes, analyzes
+        and interprets crimes against women across Indian states to enable
+        evidence-based policymaking, research, and social impact.
+      </p>
+
+      <div className="hero-actions">
+        <button className="primary-btn" onClick={() => nav("/dashboard")}>
+          Explore Dashboard
+        </button>
+
+        <button className="secondary-btn">
+          Our Mission
+        </button>
       </div>
     </section>
   );
