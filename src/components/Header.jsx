@@ -1,33 +1,25 @@
-// export default function Header() {
-//   return (
-//     <header className="bg-[#c2185b] text-white py-4 shadow-md">
-//       <div className="max-w-7xl mx-auto flex justify-between items-center px-6">
-//         <h1 className="text-2xl font-bold tracking-wide">
-//           🇮🇳 India Women Protection Index
-//         </h1>
+export default function Header() {
+  return (
+    <header className="hs-header">
+      <div className="hs-header-inner">
 
-//         <nav className="space-x-6 hidden md:flex">
-//           <a href="#" className="hover:text-pink-200">Overview</a>
-//           <a href="#" className="hover:text-pink-200">Map</a>
-//           <a href="#" className="hover:text-pink-200">Insights</a>
-//           <a href="#" className="hover:text-pink-200">Trends</a>
-//         </nav>
-//       </div>
-//     </header>
-//   );
-// }
+        {/* BRAND */}
+        <div className="hs-brand">
+          <h1>HerSafeMap</h1>
+          <p>Visualizing Data, Empowering Women</p>
+        </div>
 
+        {/* NAV */}
+        <nav className="hs-nav">
+          <a href="#">Login</a>
+          <a href="#">Yearly Trends</a>
+          <a href="#">Statewise Trend</a>
+          <a href="#">Blogs</a>
+          <a href="#">Contact Us</a>
+          <a href="#">More Info</a>
+        </nav>
 
-<div className="navbar">
-  <div className="nav-left">
-    <img src={logo} className="logo" alt="NyayaSakhi Logo" />
-    <span className="brand">NyayaSakhi</span>
-  </div>
-
-  <div className="nav-right">
-    <span>Home</span>
-    <span>About</span>
-    <span>Blog</span>
-    <span className="cta">Analyze</span>
-  </div>
-</div>
+      </div>
+    </header>
+  );
+}
