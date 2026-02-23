@@ -11,11 +11,8 @@ export default function Header() {
 
         {/* NAV */}
         <nav className="hs-nav">
-          <a href="#">Login</a>
           <a href="#">Yearly Trends</a>
           <a href="#">Statewise Trend</a>
-          <a href="#">Blogs</a>
-          <a href="#">Contact Us</a>
           <a href="#">More Info</a>
         </nav>
 

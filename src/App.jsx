@@ -89,9 +89,12 @@ export default function App() {
       <div className="dashboard">
 
         {/* MAP */}
-        <div className="map-container">
-          <IndiaMap />
-        </div>
+        <div className="map-wrapper">
+  {/* <div className="map-container"> */}
+    <IndiaMap />
+  {/* </div> */}
+</div>
+
 {/* 
         {selectedState && (
   <div className="state-analytics">

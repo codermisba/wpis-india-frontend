@@ -11,12 +11,15 @@ const getColor = (total) => {
   return "#fca5a5";
 };
 
-
 export default function IndiaMap() {
   const [geoData, setGeoData] = useState(null);
   const [hoveredState, setHoveredState] = useState(null);
   const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 });
   const [stateData, setStateData] = useState(null);
+
+  // Bigger canvas
+  const width = 1200;
+  const height = 1000;
 
   const normalizeStateName = (name) => {
     const mapping = {
@@ -24,13 +27,15 @@ export default function IndiaMap() {
       "Dadra & Nagar Haveli": "D And N Haveli",
       "Daman & Diu": "Daman and Diu",
       "Uttar Pradesh": "Tar Pradesh",
-      "Uttarakhand": "Tarakhand"
+      "Uttarakhand": "Tarakhand",
     };
     return mapping[name] || name;
   };
 
   useEffect(() => {
-    fetch("https://raw.githubusercontent.com/adarshbiradar/maps/master/india.json")
+    fetch(
+      "https://raw.githubusercontent.com/adarshbiradar/maps/master/india.json"
+    )
       .then((res) => res.json())
       .then((data) => setGeoData(data))
       .catch(console.error);
@@ -51,26 +56,29 @@ export default function IndiaMap() {
 
   if (!geoData) return <h3>Loading Map...</h3>;
 
+  // Adjusted scale so bottom isn’t cropped
   const projection = geoMercator()
-    .scale(1000)
-    .center([82, 23])
-    .translate([400, 400]);
+    .center([82.8, 23.6])
+    .scale(1500) // reduced from 1800 to fit better
+    .translate([width / 2, height / 2]);
 
   const pathGenerator = geoPath().projection(projection);
 
   return (
-    <div style={{ position: "relative" }}>
-      <svg width={800} height={800}>
+    <div className="map-container">
+      <svg
+        viewBox={`0 0 ${width} ${height}`}
+        preserveAspectRatio="xMidYMid meet"
+      >
         {geoData.features.map((state, i) => (
           <path
             key={i}
             d={pathGenerator(state)}
             fill={
-  hoveredState === normalizeStateName(state.properties.st_nm)
-    ? "#c2185b"
-    : "#f8bbd0"
-}
-
+              hoveredState === normalizeStateName(state.properties.st_nm)
+                ? "#c2185b"
+                : "#f8bbd0"
+            }
             stroke="#880e4f"
             strokeWidth={0.6}
             style={{ cursor: "pointer" }}
@@ -83,35 +91,44 @@ export default function IndiaMap() {
         ))}
       </svg>
 
+      {/* Tooltip */}
       {hoveredState && stateData && (
-  <div
-    style={{
-      position: "fixed",
-      left: tooltipPos.x + 15,
-      top: tooltipPos.y + 15,
-      background: "#0f172a",
-      color: "#f8fafc",
-      padding: "14px 16px",
-      borderRadius: "10px",
-      boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
-      fontSize: "13px",
-      pointerEvents: "none",
-      zIndex: 999,
-      minWidth: "230px",
-      border: "1px solid #334155"
-    }}
-  >
-    <div style={{ fontWeight: 700, fontSize: "15px", marginBottom: 6 }}>
-      {hoveredState}
-    </div>
-
-    <div>Total Crimes: <b>{stateData.total_cases.toLocaleString()}</b></div>
-    <div>Worst Year: <b>{stateData.worst_year}</b></div>
-    <div>Peak Cases: <b>{stateData.worst_year_cases.toLocaleString()}</b></div>
-    <div>Most Common: <b>{stateData.most_common_crime.replaceAll("_"," ")}</b></div>
-  </div>
-)}
-
+        <div
+          style={{
+            position: "fixed",
+            left: tooltipPos.x + 15,
+            top: tooltipPos.y + 15,
+            background: "#0f172a",
+            color: "#f8fafc",
+            padding: "14px 16px",
+            borderRadius: "10px",
+            boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
+            fontSize: "13px",
+            pointerEvents: "none",
+            zIndex: 999,
+            minWidth: "230px",
+            border: "1px solid #334155",
+          }}
+        >
+          <div style={{ fontWeight: 700, fontSize: "15px", marginBottom: 6 }}>
+            {hoveredState}
+          </div>
+          <div>
+            Total Crimes: <b>{stateData.total_cases.toLocaleString()}</b>
+          </div>
+          <div>
+            Worst Year: <b>{stateData.worst_year}</b>
+          </div>
+          <div>
+            Peak Cases:{" "}
+            <b>{stateData.worst_year_cases.toLocaleString()}</b>
+          </div>
+          <div>
+            Most Common:{" "}
+            <b>{stateData.most_common_crime.replaceAll("_", " ")}</b>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
