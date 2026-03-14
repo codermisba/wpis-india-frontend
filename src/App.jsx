@@ -17,7 +17,8 @@ export default function App() {
 
   useEffect(() => {
     fetchMapData().then(res => {
-    const sorted = res.data.sort((a,b) => a.Total_Crimes - b.Total_Crimes);
+    const sorted = res.data.sort((a,b) => b.Total_Crimes - a.Total_Crimes);
+
     setRanking(sorted);
   });
     fetchNationalSummary()

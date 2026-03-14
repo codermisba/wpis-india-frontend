@@ -26,8 +26,6 @@ export default function IndiaMap() {
       "Andaman & Nicobar Islands": "A And N Islands",
       "Dadra & Nagar Haveli": "D And N Haveli",
       "Daman & Diu": "Daman and Diu",
-      "Uttar Pradesh": "Tar Pradesh",
-      "Uttarakhand": "Tarakhand",
     };
     return mapping[name] || name;
   };
